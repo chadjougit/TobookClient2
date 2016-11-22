@@ -16,8 +16,23 @@ export class MyServService {
 getData(){
   var url = this.baseUrl + "api/values";
 return this.http.get(url).map(response => response.json()).catch(this.handleError);
-          
+}
 
+getItems() {
+ var url = this.baseUrl + "api/items";
+ return this.http.get(url).map(response => response.json()).catch(this.handleError);
+}
+
+
+getSerializedItem() {
+ var url = this.baseUrl + "api/items/GetRandom";
+ return this.http.get(url).map(response => response.json()).catch(this.handleError);
+}
+
+
+getSerializedOneItem() {
+ var url = this.baseUrl + "api/items/GetRandom/5";
+ return this.http.get(url).map(response => response.json()).catch(this.handleError);
 }
 
 
@@ -33,10 +48,6 @@ console.log("MyServService");
         return Observable.throw(error.json().error || "Server error");
     }
 ngOninit(){
-
-
-
-
 }
 
 }

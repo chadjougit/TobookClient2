@@ -5,19 +5,34 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MyCompComponent } from './my-comp/my-comp.component';
-import {MyServService} from './my-comp/my-serv.service'
+import {MyServService} from './my-comp/my-serv.service';
+import { LoginComponent } from './login/login.component';
+import { AboutComponent } from './about/about.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component'
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { routes } from './app.routing';
+import { ParentComponent } from './parent/parent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyCompComponent
+    MyCompComponent,
+    LoginComponent,
+    AboutComponent,
+    PageNotFoundComponent,
+    NavbarComponent,
+    DashboardComponent,
+    ParentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+     routes
   ],
-  providers: [MyServService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, MyServService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

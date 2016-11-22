@@ -29,3 +29,15 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+
+//добавил сериазабле json в api 
+пока не понял в чем фишка короче
+просто в браузере теперь по порядку объекты, а не скопом
+
+для этого в самом апи добавил newtoon json (в нюгете), потом добавил всяких бонусов в класс item (там можно отключить от сериализации некоторые штуки),
+ещё прямо в самом контроллере добавил по дефолту настройки сериализации и в один из ответов запихнул эту самую сериализацию
+
+
+//добавил роутинг и бутстрап, протестил

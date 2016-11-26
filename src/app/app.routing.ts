@@ -4,6 +4,10 @@ import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component'
+import { ItemViewComponent } from './dashboard/items/item-view/item-view.component'
+
+
+
 import { ParentComponent } from './parent/parent.component';
 
 import { RouterModule } from '@angular/router';
@@ -16,6 +20,7 @@ export const routes = RouterModule.forRoot([{ path: '', redirectTo: 'ParentCompo
         children: [
             { path: '', redirectTo: 'DashboardComponent', pathMatch: 'full' },
             { path: 'DashboardComponent', component: DashboardComponent },
+            { path: 'ItemViewComponent/:id', component: ItemViewComponent},
             { path: 'login', component: LoginComponent },
             { path: 'AboutComponent', component: AboutComponent },
                 { path: 'MyCompComponent', component: MyCompComponent },

@@ -9,6 +9,27 @@
 <span (click)="showItemInCOnsole()">Edit</span>
 
 
+<form   (ngSubmit)="onUpdate(itemData)" [formGroup]="itemData">
+<input   formControlName="Name">
+<button type="submit" > onUpdate </button>
+</form>
+
+
+<form   (ngSubmit)="postNewItem(newItem)" [formGroup]="newItem">
+<input   formControlName="Name">
+<input   formControlName="Text">
+<input   formControlName="Viewed">
+<button type="submit" > onUpdate </button>
+</form>
+
+
+
+<div [formGroup]="myGroup">
+      <input formControlName="firstName">
+    </div>
+
+
+
   <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
       <label>
         <span>Full name</span>

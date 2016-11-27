@@ -21,7 +21,14 @@ test:any;
 
 user: FormGroup;
 
-  constructor(private activatedRoute: ActivatedRoute, private itemservice: ItemsService, private fb: FormBuilder) {
+itemData: FormGroup;
+
+myGroup: FormGroup;
+
+newItem: FormGroup;
+
+  constructor(private activatedRoute: ActivatedRoute, private itemservice: ItemsService, 
+  private fb: FormBuilder, private fb3: FormBuilder,  private fb2: FormBuilder, private fb4: FormBuilder) {
 
 
    }
@@ -30,6 +37,22 @@ user: FormGroup;
 
   ngOnInit() {
 
+    this.itemData = this.fb2.group({
+Name: ['myname']
+    });
+
+
+    this.newItem = this.fb4.group({
+
+Name:  ['typenamehere'],
+Text: ['typetexthere'],
+Viewed: ['numberofcounts']
+
+    });
+
+    this.myGroup = this.fb3.group({
+       firstName:  ['', Validators.required]
+    });
 
         this.user = this.fb.group({
       name: ['testname', [Validators.required, Validators.minLength(2)]],
@@ -58,8 +81,30 @@ console.log(this.item );
 
  }
 
+
+onUpdate(item2){
+
+  this.item.Name = item2.value.Name;
+
+this.itemservice.update(this.item).subscribe((data) => {console.log(data); console.log("testing")});
+
+//console.log(item2.value);
+
+}
+
+
    onSubmit({ value, valid }: { value: User, valid: boolean }) {
     console.log(value, valid);
-  }
+    console.log(this.itemData.value);
+console.log(this.myGroup.value);
+  };
+
+
+postNewItem({value}: {value: item}) {
+  
+  console.log(value);
+  this.itemservice.add(value).subscribe();
+
+};
 
 }

@@ -107,4 +107,11 @@ postNewItem({value}: {value: item}) {
 
 };
 
+
+deleteFirstItem() {
+
+this.itemservice.delete(1).subscribe();
+
+}
+
 }

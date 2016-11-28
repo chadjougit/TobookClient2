@@ -56,6 +56,15 @@ export class ItemsService {
     }
 
 
+    delete(id: number) {
+        var url = this.baseUrl +"api/items/DeleteItem/" + id;
+        return this.http.delete(url)
+        .map(response => response);
+
+
+    }
+
+
     private getRequestOptions() {
         return new RequestOptions({
             headers: new Headers({

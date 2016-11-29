@@ -17,6 +17,7 @@ import { routes } from './app.routing';
 import { ParentComponent } from './parent/parent.component';
 import { ItemsComponent } from './dashboard/items/items.component';
 import { ItemViewComponent } from './dashboard/items/item-view/item-view.component';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { ItemViewComponent } from './dashboard/items/item-view/item-view.compone
     routes,
     ReactiveFormsModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, MyServService, ItemsService],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, MyServService, ItemsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
